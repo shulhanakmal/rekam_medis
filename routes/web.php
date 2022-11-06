@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.login');
 });
+
+Auth::routes();
+
+// login
+Route::post('/authenticate', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
+
+
+// dashboard
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
